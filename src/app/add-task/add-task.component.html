@@ -1,0 +1,119 @@
+<!-- <div class="header bg-gradient-danger pb-2 pt-5 pt-md-8">
+</div> -->
+<!-- Page content -->
+
+<div class="container">
+    <form #form="ngForm" (ngSubmit)="addTask(form)" role="form">
+        <h2>Add Task</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="first">Title</label>
+                    <input type="text" name="title" ngModel class="form-control" id="first" #titleController="ngModel"
+                        required>
+                </div>
+            </div>
+            <div *ngIf="titleController.invalid && (titleController.dirty ||titleController.touched) ">
+                <div *ngIf="titleController.errors?.required">
+                    <small style="color:red">
+                        Title Empty !
+                    </small>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="first">Description</label>
+                    <input type="text" name="desc" ngModel class="form-control" id="first" #descController="ngModel"
+                        required>
+                </div>
+                <div *ngIf="descController.invalid && (descController.dirty ||descController.touched) ">
+                    <div *ngIf="descController.errors?.required">
+                        <small style="color:red">
+                            Description Empty !
+                        </small>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--  col-md-6   -->
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="last">Adresse</label>
+                    <input type="text" name="adresse" ngModel class="form-control" id="last" #adrController="ngModel"
+                        required>
+                </div>
+                <div *ngIf="adrController.invalid && (adrController.dirty ||adrController.touched) ">
+                    <div *ngIf="adrController.errors?.required">
+                        <small style="color:red">
+                            Adresse Empty !
+                        </small>
+                    </div>
+
+                </div>
+            </div>
+            <!--  col-md-6   -->
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="email">Date</label>
+                    <input min="{{currentDate|date:'yyyy-MM-dd'}}" type="date" name="date" ngModel class="form-control"
+                        #dateController="ngModel" required>
+                </div>
+                <div *ngIf="dateController.invalid && (dateController.dirty ||dateController.touched) ">
+                    <div *ngIf="dateController.errors?.required">
+                        <small style="color:red">
+                            Date Empty !
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+            <!--  col-md-6   -->
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label for="phone">Image </label>
+                    <input type="file" name="image" ngModel class="form-control" id="phone" #imgController="ngModel"
+                        >
+                </div>
+              
+            </div>
+            <!--  col-md-6   -->
+        </div>
+        <!--  row   -->
+        <br>
+        <div class="row float-right">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <button [disabled]="!form.valid" type="submit" class="btn btn-primary">Add</button>
+                </div>
+
+
+            </div>
+            <!--  col-md-6   -->
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <button type="button" (click)="close()" class="btn btn-danger">Cancel</button>
+                </div>
+            </div>
+            <!--  col-md-6   -->
+        </div>
+        <br>
+        <!--  row   -->
+
+    </form>
+</div>
